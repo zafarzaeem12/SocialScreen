@@ -4,13 +4,19 @@ import React from 'react'
 import Splashscreen from './components/Splash/Splashscreen'
 import PreLogin from './components/Auth/PreLogin'
 import Login from './components/Auth/Login'
+import Register from './components/Auth/Register'
+import Forgetpassword from './components/Auth/Forgetpassword'
+import Verification from './components/Auth/Verification'
 
 const App = () => {
   return (
     <View>
       {/* <Splashscreen /> */}
       {/* <PreLogin /> */}
-      <Login />
+      {/* <Login /> */}
+      {/* <Register /> */}
+      {/* <Forgetpassword /> */}
+      <Verification />
     </View>
   )
 }
