@@ -3,7 +3,12 @@ import { StyleSheet, Text, View , ImageBackground ,Image } from 'react-native'
 import React from 'react'
 import img1 from './Images/bg.png'
 
-const Splashscreen = () => {
+const Splashscreen = ({navigation}) => {
+
+    setTimeout(() => {
+        navigation.navigate('PreLogin')
+    },4000)
+
   return (
     
         <ImageBackground 
@@ -12,7 +17,10 @@ const Splashscreen = () => {
             source={img1} 
         >
             <View style={styles.logospace}>
-                <Image style={styles.image} source={require('../Splash/Images/logo.png')} />
+                <Image 
+                    style={styles.image} 
+                    source={require('../Splash/Images/logo.png')}  
+                    />
             </View>
         </ImageBackground>
     

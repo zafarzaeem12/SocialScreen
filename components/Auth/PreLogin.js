@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-const PreLogin = () => {
+const PreLogin = ({navigation}) => {
     return (
         <View>
             <ImageBackground 
@@ -22,7 +22,7 @@ const PreLogin = () => {
                 <View style={{padding:15}}>
                     <SimpleLineIcons name="envelope" size={30} color="#fff" />
                 </View>
-                    <Text style={styles.logintxt}   >Sign in with Email</Text>
+                    <Text style={styles.logintxt} onPress={() => navigation.navigate('Login')}   >Sign in with Email</Text>
                 </View>
               </TouchableOpacity>
 
@@ -54,7 +54,7 @@ const PreLogin = () => {
               </View>
               </TouchableOpacity>
 
-              <Text style={{padding:10 ,color:"#fff"}} >Donot have a account Register User</Text>
+              <Text style={{padding:10 ,color:"#fff"}} onPress={() => navigation.navigate('Register')} >Donot have a account Register User</Text>
             </View>           
         </ImageBackground>
         </View>

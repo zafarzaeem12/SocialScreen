@@ -17,7 +17,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Divider } from 'react-native-paper';
 
-const Forgetpassword = () => {
+const Forgetpassword = ({navigation}) => {
   return (
     <View>
     <ImageBackground
@@ -44,7 +44,7 @@ const Forgetpassword = () => {
             </View>
             <TouchableOpacity style={styles.googleBtn}>
                 <View style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-                    <Text style={{ fontSize: 20, color: "#fff" }}   >Get Code</Text>
+                    <Text style={{ fontSize: 20, color: "#fff" }} onPress={() => navigation.navigate('Verification')} >Get Code</Text>
                 </View>
             </TouchableOpacity>
         </View>
@@ -69,8 +69,8 @@ backgroundimage: {
     opacity: 1
 },
 image: {
-    width: 150,
-    height: 150,
+    width: 250,
+    height: 250,
     resizeMode: "contain",
     alignSelf: "center"
 },
@@ -86,7 +86,7 @@ googleBtn: {
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
-    backgroundColor: "#454545",
+    backgroundColor: "#F28C28",
     borderWidth: 2.5,
     borderColor: "white"
 

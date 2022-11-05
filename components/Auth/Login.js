@@ -7,7 +7,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Divider } from 'react-native-paper';
 
-const Login = () => {
+const Login = ({navigation}) => {
   const [icon,Seticon] = useState('eye-with-line');
   const [ricon , Setricon] = useState('lock');
   const [passwordvisible,Setpasswordvisible] = useState(true);
@@ -69,15 +69,18 @@ const Login = () => {
             <Divider />
           </View>
 
+          <View style={{paddingTop:20}}>
+              <Text style={{ padding: 10, color: "#fff",fontSize:22 }} onPress={() => navigation.navigate('Forgetpassword')} >Forget Password?</Text>
+            </View>
           
 
             <TouchableOpacity style={styles.googleBtn}>
               <View style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-                <Text style={{fontSize:20,color:"#fff"}}   >Login</Text>
+                <Text style={{fontSize:20,color:"#fff"}} onPress={() => navigation.navigate('Home')}   >Login</Text>
               </View>
             </TouchableOpacity>
-            <View style={{paddingTop:100}}>
-              <Text style={{ padding: 10, color: "#fff" }} >Donot have a account Register User</Text>
+            <View style={{paddingTop:80}}>
+              <Text style={{ padding: 10, color: "#fff" }} onPress={() => navigation.navigate('Register')} >Donot have a account Register User</Text>
             </View>
           </View>
         

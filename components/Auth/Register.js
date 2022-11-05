@@ -17,7 +17,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Divider } from 'react-native-paper';
 
-const Register = () => {
+const Register = ({navigation}) => {
     const [icon, Seticon] = useState('eye-with-line');
     const [ricon, Setricon] = useState('lock');
     const [passwordvisible, Setpasswordvisible] = useState(true);
@@ -195,7 +195,7 @@ const Register = () => {
                         </View>
                     </TouchableOpacity>
                     <View style={{ paddingTop: 100 }}>
-                        <Text style={{ padding: 10, color: "#fff" }} >Already have account Login user</Text>
+                        <Text style={{ padding: 10, color: "#fff" }} onPress={() => navigation.navigate('Login')} >Already have account Login user</Text>
                     </View>
                 </View>
 
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginTop: 40,
-        backgroundColor: "#454545",
+        backgroundColor: "#F28C28",
         borderWidth: 2.5,
         borderColor: "white"
 
