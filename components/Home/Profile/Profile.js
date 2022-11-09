@@ -184,7 +184,7 @@ const Profile = ({ navigation }) => {
 
           <TouchableOpacity style={styles.googleBtn}>
             <View style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-              <Text style={{ fontSize: 20, color: "#fff" }} onPress={() => navigation.navigate('Setting')}   >Save Changes</Text>
+              <Text style={{ fontSize: 20, color: "#fff" }} onPress={() => navigation.navigate('Setting')}   >Setting</Text>
             </View>
           </TouchableOpacity>
           <View style={{paddingBottom:50}} />
