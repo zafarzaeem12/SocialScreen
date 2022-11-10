@@ -21,6 +21,7 @@ import Calender from './components/Home/Calender/Calender';
 import Home from './components/Home/Home/Home';
 import Poll from './components/Home/Poll/Poll';
 import Profile from './components/Home/Profile/Profile';
+import CardDetails from './components/Home/Profile/CardDetails';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -164,6 +165,8 @@ const App = () => {
         <Stack.Screen name='Verification' component={Verification} />
         <Stack.Screen name='Resetpassword' component={Resetpassword} />
         <Stack.Screen name='Setting' component={Setting} />
+        <Stack.Screen name='CardDetails' component={CardDetails} />
+        <Stack.Screen name='Profile' component={Profile} />
         <Stack.Screen name='Home' component={HomeTabScreen} />
       </Stack.Navigator>
     </NavigationContainer>

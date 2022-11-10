@@ -10,17 +10,17 @@ const Settingcomponents = ({ name, icon }) => {
             style={{
                 width: '90%',
                 backgroundColor: "#ffffff",
-                height: '9%',
-                marginTop: 40,
-                borderRadius: 16,
+                marginTop: 20,
+                borderRadius: 10,
                 alignItems: 'center',
                 alignSelf: "center",
                 paddingHorizontal: 20,
                 paddingTop: 10,
+                justifyContent:"center"
 
             }}
         >
-            <View style={{ display: "flex", flexDirection: "row", alignSelf: "flex-start", paddingLeft: 20, alignItems: "center" }}>
+            <View style={{flexDirection: "row", alignSelf: "flex-start", paddingLeft: 20, alignItems: "center",paddingVertical:8  }}>
                 {
                     icon === "logout" ?
                         (
@@ -47,8 +47,8 @@ const Settingcomponents = ({ name, icon }) => {
                     name === "Recived Push Notification" ?
                         (
                             <>
-                                <View style={{ paddingLeft: 20 }}>
-                                    <Text style={{ fontSize: 18, fontWeight: "300" }}>{name}</Text>
+                                <View style={{ paddingLeft: 20,justifyContent:"space-between" }}>
+                                    <Text style={{ fontSize: 16, fontWeight: "700" }}>{name}</Text>
                                 </View>
                                 <View style={{ paddingLeft: 10 }}>
                                     <ToggleSwitch
@@ -56,6 +56,7 @@ const Settingcomponents = ({ name, icon }) => {
                                         onColor="green"
                                         offColor="red"
                                         size="small"
+                                        animationSpeed={300}
                                         onToggle={isOn => console.log("changed to : ", isOn)}
                                     />
                                 </View>
@@ -63,7 +64,7 @@ const Settingcomponents = ({ name, icon }) => {
                         ) :
                         (
                             <View style={{ paddingLeft: 20 }}>
-                                <Text style={{ fontSize: 18, fontWeight: "300" }}>{name}</Text>
+                                <Text style={{ fontSize: 16, fontWeight: "700" }}>{name}</Text>
                             </View>
                         )
                 }
