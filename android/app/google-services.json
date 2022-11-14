@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "441081879061",
+    "project_id": "social-screens",
+    "storage_bucket": "social-screens.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441081879061:android:144b8677933251b2b98c1c",
+        "android_client_info": {
+          "package_name": "com.social_screens"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441081879061-ivijfgq81hn53arr7ug6685gh72rnuce.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.social_screens",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "441081879061-h2hp1lsol5t6c4e0e9vv7j7uj0m706eh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgkU_GSmVgywm0al-6I5Sr_chRmTJHWAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441081879061-h2hp1lsol5t6c4e0e9vv7j7uj0m706eh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Social_screens</string>
+    <string name="facebook_app_id">412256831106653</string>
+    <string name="facebook_client_token">6b8de40b2db4a3875097292ebb173c12</string>
+    <string name="fb_login_protocol_scheme">92d4090f188d88cb9a299141ed2cd61d</string>
 </resources>

@@ -10,7 +10,6 @@ import {
     TouchableOpacity,
     ScrollView
 } from 'react-native'
-import CountDown from 'react-native-countdown-component';
 import img1 from '../Auth/Images/bg.png'
 import OTPInputView from '@twotalltotems/react-native-otp-input'
 const Verification = ({navigation}) => {

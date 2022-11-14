@@ -19,7 +19,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Divider } from 'react-native-paper';
 
-const Profile = ({ navigation }) => {
+const Profile = (props) => {
+  console.log(props)
+  const { navigation , route } = props
+  const {Id,Email,Name,Pic} = route.params
   const [icon, Seticon] = useState('eye-with-line');
   const [ricon, Setricon] = useState('lock');
   const [passwordvisible, Setpasswordvisible] = useState(true);
@@ -67,16 +70,16 @@ const Profile = ({ navigation }) => {
       <ScrollView>
         <View style={{ alignItems: "center", padding: 30 }}>
           {
-            filePath !== "" ?
+            filePath !== "" || Pic !== "" ?
               (
                 <TouchableOpacity>
-                  <Image source={{ uri: filePath }} style={styles.image} />
+                  <Image source={{ uri: `${Pic || filePath}`}} style={styles.image} />
                   <View style={{ padding: 10, bottom: 5, right: 6, backgroundColor: "green", position: "absolute", borderRadius: 80, alignItems: "center", justifyContent: "center" }}>
                     <MaterialIcons style={{ resizeMode: "contain", width: 30, height: 30 }} onPress={() => Camera()} name='add-a-photo' size={30} color="#fff" />
                   </View>
                 </TouchableOpacity>
               )
-              :
+              : 
               (
                 <TouchableOpacity style={[styles.logospace, styles.image]}>
                   <View style={{ padding: 10, bottom: 5, right: 6, backgroundColor: "green", position: "absolute", borderRadius: 80, alignItems: "center", justifyContent: "center" }}>
@@ -93,7 +96,7 @@ const Profile = ({ navigation }) => {
               <View style={{ padding: 10 }}>
                 <SimpleLineIcons name="user" size={28} color="#F28C28" />
               </View>
-              <TextInput placeholder="Mark Zebarak" keyboardType="email-address" />
+              <TextInput placeholder="Mark Zebarak" keyboardType="email-address" value={Name} />
             </View>
             <Divider />
             <Divider />
@@ -106,7 +109,7 @@ const Profile = ({ navigation }) => {
               <View style={{ padding: 10 }}>
                 <SimpleLineIcons name="envelope" size={28} color="#F28C28" />
               </View>
-              <TextInput placeholder="admin.342@admin.com" keyboardType="email-address" />
+              <TextInput placeholder="admin.342@admin.com" keyboardType="email-address" value={Email} />
             </View>
             <Divider />
             <Divider />

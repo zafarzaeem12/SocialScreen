@@ -15,7 +15,7 @@ const Setting = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             <View>
-                <TouchableOpacity onPress={() => navigation.navigate('CardDetails')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
                         <Settingcomponents name="Card Details" icon="credit-card" />
                 </TouchableOpacity>
             </View>
