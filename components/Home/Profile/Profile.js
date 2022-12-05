@@ -20,9 +20,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Divider } from 'react-native-paper';
 
 const Profile = (props) => {
-  console.log(props)
+  console.log("check",props)
   const { navigation , route } = props
-  const {Id,Email,Name,Pic} = route.params
+  const {Email,Name,Pic,data} = route.params
   const [icon, Seticon] = useState('eye-with-line');
   const [ricon, Setricon] = useState('lock');
   const [passwordvisible, Setpasswordvisible] = useState(true);

@@ -21,7 +21,7 @@ const Google = async () => {
         const { uid, email ,displayName,photoURL,emailVerified } = userAuth.user._user;
         
         if(emailVerified === true){
-            return { Id: uid,Email: email ,Name: displayName, Pic:photoURL }
+            return { uid: uid,Email: email ,Name: displayName, Pic:photoURL }
         }
     } catch (error) {
         console.log(error);
@@ -41,7 +41,7 @@ const Facebook = () => {
                     );
                     const userAuth = await Auth().signInWithCredential(fbCredential);
                     const { uid, providerData,displayName,photoURL,emailVerified } = userAuth?.user?._user;
-                    return { Id: uid,Email : providerData[0].providerId ,Name: displayName, Pic:photoURL , status:emailVerified };
+                    return { uid: uid,Email : providerData[0].providerId ,Name: displayName, Pic:photoURL , status:emailVerified };
                 } catch (error) {
                     console.log(error);
                 }

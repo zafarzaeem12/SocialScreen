@@ -12,6 +12,8 @@ const Login = ({navigation}) => {
   const [ricon , Setricon] = useState('lock');
   const [passwordvisible,Setpasswordvisible] = useState(true);
   const [password,Setpassword] = useState("");
+  const [email,setEmail] = useState("");
+  const [profiledata,setData] = useState({});
 
   const showandhide = (e) => {
    if(icon === 'eye-with-line' && ricon === 'lock'){
@@ -24,6 +26,39 @@ const Login = ({navigation}) => {
     Setpasswordvisible(!passwordvisible)
    }
   }
+
+  const Login_Api_Integration = async () => {
+    try{
+      const payload ={
+        email : email,
+        password: password 
+      }
+    
+      const datas = await fetch(`http://10.0.4.79:3000/users/login`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    });
+      const User_LoggedIn = await datas.json();
+      console.log("User_LoggedIn",User_LoggedIn)
+      if(User_LoggedIn.status === 200){
+        setData(User_LoggedIn?.data)
+        navigation.navigate('Profile',  profiledata)
+      }else{
+        navigation.navigate('Login')  
+
+      }
+    } catch(err){
+      console.log('',err)
+    }
+
+    
+  }
+
+  console.log(data);
 
   return (
     <View>
@@ -42,7 +77,12 @@ const Login = ({navigation}) => {
               <View style={{ padding: 10 }}>
                 <SimpleLineIcons name="envelope" size={28} color="#fff" />
               </View>
-              <TextInput placeholder="admin.342@admin.com" keyboardType="email-address" />
+              <TextInput 
+                placeholder="admin.342@admin.com" 
+                keyboardType="email-address"
+                onChangeText={(text) => setEmail(text)} 
+                value={email}
+                 />
             </View>
             <Divider />
           </View>
@@ -74,9 +114,9 @@ const Login = ({navigation}) => {
             </View>
           
 
-            <TouchableOpacity style={styles.googleBtn}>
+            <TouchableOpacity style={styles.googleBtn} onPress={() => Login_Api_Integration()}>
               <View style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-                <Text style={{fontSize:20,color:"#fff"}} onPress={() => navigation.navigate('Home')}   >Login</Text>
+                <Text style={{fontSize:20,color:"#fff"}}    >Login</Text>
               </View>
             </TouchableOpacity>
             <View style={{paddingTop:80}}>

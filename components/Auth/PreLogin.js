@@ -1,20 +1,64 @@
 /* eslint-disable prettier/prettier */
-import React from 'react'
-import { StyleSheet, Text, View, ImageBackground, Image, TouchableOpacity } from 'react-native'
+import React, { useEffect,useState } from 'react'
+import { StyleSheet, Text, View, ImageBackground, Image, TouchableOpacity,Platform,Alert } from 'react-native'
 import img1 from '../Auth/Images/bg.png'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import AuthLogin from '../../components/socialLogin';
+import messaging from '@react-native-firebase/messaging';
+import auth, { firebase } from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+
+
+
+
 const PreLogin = ({ navigation }) => {
 
+  
+  
+  const saveTokenToDatabase = async (token) => {
+    // Assume user is already signed in
+    const userId = auth()?.currentUser?.uid;
+   
+        const data = { tokens: token }
+        console.log({userId})
+        console.log({data})
+ 
+  }
+
+
+
+  useEffect(() => {
+ 
+    
+  //  console.log("firestore",firebase.apps[0]._options)
+    
+    // Get the device token
+    messaging()
+      .getToken()
+      .then(token => {
+        console.log("tokentokentoken",token)
+        return saveTokenToDatabase(token);
+      });
+
+      messaging().onMessage(async remoteMessage => {
+        console.log('Message handled in the background!', remoteMessage);
+      });
+  
+
+    // Listen to whether the token changes
+    return messaging().onTokenRefresh(token => {
+      saveTokenToDatabase(token);
+    });
+  }, []);
 
 
   const FacebookLogin = () => {
-    AuthLogin.Facebook().then((data) => navigation.navigate('Profile',data))
+    AuthLogin.Facebook().then((data) => navigation.navigate('Profile', data))
   }
   const GoogleLogin = async () => {
     const data = await AuthLogin.Google();
-    navigation.navigate('Profile',data)
+    navigation.navigate('Profile', data)
   }
   const AppleLogin = async () => {
     await AuthLogin.Apple();
@@ -41,7 +85,7 @@ const PreLogin = ({ navigation }) => {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.appleBtn}  onPress={() => AppleLogin()}>
+          <TouchableOpacity style={styles.appleBtn} onPress={() => AppleLogin()}>
             <View style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
               <View style={{ padding: 15 }}>
                 <AntDesign name="apple-o" size={30} color="#fff" />
@@ -59,7 +103,7 @@ const PreLogin = ({ navigation }) => {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.googleBtn}  onPress={() => GoogleLogin()}>
+          <TouchableOpacity style={styles.googleBtn} onPress={() => GoogleLogin()}>
             <View style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
               <View style={{ padding: 15 }}>
                 <AntDesign name="google" size={30} color="#fff" />
